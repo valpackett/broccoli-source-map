@@ -57,7 +57,6 @@ SourceMapExtractor.prototype.updateCache = function(srcDir, destDir) {
 			var destPath = path.join(destDir, relativePath);
 			var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
 			var smap = convert.fromComment(srcCode, srcDir);
-			console.log(relativePath);
 			if (smap !== null) {
 				fs.writeFileSync(destPath, convert.removeComments(srcCode) + '\n//# sourceMappingURL=' + relativePath + '.map');
 				fs.writeFileSync(destPath + '.map', smap.toJSON());
