@@ -8,7 +8,7 @@ A [Broccoli] plugin for inlining or extracting [JavaScript source maps] using [c
 
 ## Installation
 
-```shell
+```bash
 $ npm install --save-dev broccoli-sweetjs
 ```
 
