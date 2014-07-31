@@ -16,6 +16,11 @@ function _genMkdirOrProcess(process) {
 	}
 }
 
+function _isSourceMappableFile(path) {
+	return relativePath.slice(-3) === '.js'
+		|| relativePath.slice(-4) === '.css';
+}
+
 function SourceMapInliner(inputTree) {
 	if (!(this instanceof SourceMapInliner)) return new SourceMapInliner(inputTree);
 	this.inputTree = inputTree;
@@ -24,7 +29,7 @@ SourceMapInliner.prototype = Object.create(CachingWriter.prototype);
 SourceMapInliner.prototype.constructor = SourceMapInliner;
 SourceMapInliner.prototype.updateCache = function(srcDir, destDir) {
 	walkSync(srcDir).forEach(_genMkdirOrProcess(function(relativePath) {
-		if (relativePath.slice(-3) === '.js') {
+		if (_isSourceMappableFile(relativePath)) {
 			var srcPath = path.join(srcDir, relativePath);
 			var destPath = path.join(destDir, relativePath);
 			var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
@@ -52,7 +57,7 @@ SourceMapExtractor.prototype = Object.create(CachingWriter.prototype);
 SourceMapExtractor.prototype.constructor = SourceMapExtractor;
 SourceMapExtractor.prototype.updateCache = function(srcDir, destDir) {
 	walkSync(srcDir).forEach(_genMkdirOrProcess(function(relativePath) {
-		if (relativePath.slice(-3) === '.js') {
+		if (_isSourceMappableFile(relativePath)) {
 			var srcPath = path.join(srcDir, relativePath);
 			var destPath = path.join(destDir, relativePath);
 			var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
