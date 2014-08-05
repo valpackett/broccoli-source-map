@@ -1,4 +1,4 @@
-# broccoli-source-map
+# broccoli-source-map [![npm version](https://img.shields.io/npm/v/broccoli-source-map.svg?style=flat)](https://www.npmjs.org/package/broccoli-source-map) [![npm downloads](https://img.shields.io/npm/dm/broccoli-source-map.svg?style=flat)](https://www.npmjs.org/package/broccoli-source-map) [![WTFPL](https://img.shields.io/badge/license-WTFPL-brightgreen.svg?style=flat)](https://www.tldrlegal.com/l/wtfpl)
 
 A [Broccoli] plugin for inlining or extracting [JavaScript source maps] using [convert-source-map].
 

@@ -1,7 +1,7 @@
 {
 	"name": "broccoli-source-map",
 	"description": "A Broccoli plugin for inlining or extracting sourcemaps",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "Greg V <floatboth@me.com>",
 	"engines": {
 		"node": "*"
