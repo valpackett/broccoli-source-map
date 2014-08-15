@@ -12,7 +12,7 @@ function _genMkdirOrProcess(process) {
 			return mkdirp.sync(path.join(destDir, relativePath));
 		} else {
 			return process(relativePath);
-		};
+		}
 	}
 }
 
@@ -34,14 +34,18 @@ SourceMapInliner.prototype.updateCache = function(srcDir, destDir) {
 			var destPath = path.join(destDir, relativePath);
 			var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
 			var smap = convert.fromMapFileSource(srcCode, srcDir);
-			if (smap !== null) {
+			if (smap !== null && typeof smap['sourcemap'] !== 'undefined') {
 				if (typeof smap.getProperty('sourcesContent') === 'undefined' && typeof smap.getProperty('sources') !== 'undefined') {
 					var contents = smap.getProperty('sources').map(function(spath) {
 						return fs.readFileSync(path.join(srcDir, spath), {encoding: 'utf-8'});
 					});
 					smap = smap.setProperty('sourcesContent', contents);
 				}
-				fs.writeFileSync(destPath, convert.removeMapFileComments(srcCode) + '\n' + smap.toComment());
+				var comment = smap.toComment();
+				if (destPath.slice(-4) === '.css') {
+					comment = comment.replace(/^\/\//, '/*') + ' */';
+				}
+				fs.writeFileSync(destPath, convert.removeMapFileComments(srcCode) + '\n' + comment);
 			} else {
 				fs.writeFileSync(destPath, srcCode);
 			}
@@ -63,7 +67,11 @@ SourceMapExtractor.prototype.updateCache = function(srcDir, destDir) {
 			var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
 			var smap = convert.fromComment(srcCode, srcDir);
 			if (smap !== null) {
-				fs.writeFileSync(destPath, convert.removeComments(srcCode) + '\n//# sourceMappingURL=' + relativePath + '.map');
+				var comment = '//# sourceMappingURL=' + relativePath + '.map';
+				if (destPath.slice(-4) === '.css') {
+					comment = '/*# sourceMappingURL=' + relativePath + '.map */';
+				}
+				fs.writeFileSync(destPath, convert.removeComments(srcCode) + '\n' + comment);
 				fs.writeFileSync(destPath + '.map', smap.toJSON());
 			} else {
 				fs.writeFileSync(destPath, srcCode);
