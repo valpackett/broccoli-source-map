@@ -17,8 +17,8 @@ function _genMkdirOrProcess(process) {
 }
 
 function _isSourceMappableFile(path) {
-	return relativePath.slice(-3) === '.js'
-		|| relativePath.slice(-4) === '.css';
+	return path.slice(-3) === '.js'
+		|| path.slice(-4) === '.css';
 }
 
 function SourceMapInliner(inputTree) {
