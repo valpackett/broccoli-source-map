@@ -6,7 +6,7 @@ var walkSync = require('walk-sync');
 var convert = require('convert-source-map');
 var CachingWriter = require('broccoli-caching-writer');
 
-function _genMkdirOrProcess(process) {
+function _genMkdirOrProcess(destDir, process) {
 	return function(relativePath) {
 		if (relativePath.slice(-1) === '/') {
 			return mkdirp.sync(path.join(destDir, relativePath));
@@ -28,7 +28,7 @@ function SourceMapInliner(inputTree) {
 SourceMapInliner.prototype = Object.create(CachingWriter.prototype);
 SourceMapInliner.prototype.constructor = SourceMapInliner;
 SourceMapInliner.prototype.updateCache = function(srcDir, destDir) {
-	walkSync(srcDir).forEach(_genMkdirOrProcess(function(relativePath) {
+	walkSync(srcDir).forEach(_genMkdirOrProcess(destDir, function(relativePath) {
 		if (_isSourceMappableFile(relativePath)) {
 			var srcPath = path.join(srcDir, relativePath);
 			var destPath = path.join(destDir, relativePath);
@@ -60,7 +60,7 @@ function SourceMapExtractor(inputTree) {
 SourceMapExtractor.prototype = Object.create(CachingWriter.prototype);
 SourceMapExtractor.prototype.constructor = SourceMapExtractor;
 SourceMapExtractor.prototype.updateCache = function(srcDir, destDir) {
-	walkSync(srcDir).forEach(_genMkdirOrProcess(function(relativePath) {
+	walkSync(srcDir).forEach(_genMkdirOrProcess(destDir, function(relativePath) {
 		if (_isSourceMappableFile(relativePath)) {
 			var srcPath = path.join(srcDir, relativePath);
 			var destPath = path.join(destDir, relativePath);
