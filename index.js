@@ -33,7 +33,7 @@ SourceMapInliner.prototype.updateCache = function(srcDir, destDir) {
 			var srcPath = path.join(srcDir, relativePath);
 			var destPath = path.join(destDir, relativePath);
 			var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
-			var smap = convert.fromMapFileSource(srcCode, srcDir);
+			var smap = convert.fromMapFileSource(srcCode, path.dirname(srcPath));
 			if (smap !== null && typeof smap['sourcemap'] !== 'undefined') {
 				if (typeof smap.getProperty('sourcesContent') === 'undefined' && typeof smap.getProperty('sources') !== 'undefined') {
 					var contents = smap.getProperty('sources').map(function(spath) {
@@ -65,7 +65,7 @@ SourceMapExtractor.prototype.updateCache = function(srcDir, destDir) {
 			var srcPath = path.join(srcDir, relativePath);
 			var destPath = path.join(destDir, relativePath);
 			var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
-			var smap = convert.fromComment(srcCode, srcDir);
+			var smap = convert.fromComment(srcCode, path.dirname(srcPath));
 			if (smap !== null) {
 				var comment = '//# sourceMappingURL=' + relativePath + '.map';
 				if (destPath.slice(-4) === '.css') {
