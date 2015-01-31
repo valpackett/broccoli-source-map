@@ -2,7 +2,7 @@
 
 A [Broccoli] plugin for inlining or extracting [JavaScript source maps] using [convert-source-map].
 
-[Broccoli]: https://github.com/joliss/broccoli
+[Broccoli]: https://github.com/broccolijs/broccoli
 [JavaScript source maps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [convert-source-map]: https://www.npmjs.org/package/convert-source-map
 
@@ -37,7 +37,7 @@ This is very useful if you want to use [broccoli-browserify] because browserify 
 
 ## License
 
-Copyright © 2014 [myfreeweb](https://github.com/myfreeweb)
+Copyright © 2014-2015 Greg V <greg@unrelenting.technology>
 This work is free. You can redistribute it and/or modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
 as published by Sam Hocevar. See the COPYING file for more details.
