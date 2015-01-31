@@ -75,6 +75,6 @@ var SourceMapExtractor = SourceMapProcessor.extend({
 });
 
 module.exports = {
-	inline: SourceMapInliner,
-	extract: SourceMapExtractor
+	inline: function(t, o) { return new SourceMapInliner(t, o); },
+	extract: function(t, o) { return new SourceMapExtractor(t, o); }
 }

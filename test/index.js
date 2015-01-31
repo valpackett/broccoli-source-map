@@ -10,7 +10,7 @@ function fixt(n) { return path.join('test/fixtures', n); }
 
 describe('sourceMap', function() {
 	it('inlines', function() {
-		return new broccoli.Builder(new sourceMap.inline(fixt('compiled-as-external')))
+		return new broccoli.Builder(sourceMap.inline(fixt('compiled-as-external')))
 			.build().then(function(result) {
 				expect(
 					fs.readFileSync(path.join(result.directory, 'example-es6.js'), {encoding: 'utf8'}).replace('\n\n\n\n', '\n\n')
@@ -21,7 +21,7 @@ describe('sourceMap', function() {
 	});
 
 	it('extracts', function() {
-		return new broccoli.Builder(new sourceMap.extract(fixt('compiled-as-inline')))
+		return new broccoli.Builder(sourceMap.extract(fixt('compiled-as-inline')))
 			.build().then(function(result) {
 				expect(
 					fs.readFileSync(path.join(result.directory, 'example-es6.js'), {encoding: 'utf8'}).replace('\n\n\n', '\n\n') + '\n'
