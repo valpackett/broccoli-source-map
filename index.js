@@ -30,7 +30,7 @@ var SourceMapProcessor = CachingWriter.extend({
 					var srcPath = path.join(srcDir, relativePath);
 					var destPath = path.join(destDir, relativePath);
 					var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
-					self.processCode(srcCode, srcDir, destPath);
+					self.processCode(srcCode, srcDir, destPath, relativePath);
 				}
 			}));
 		});
@@ -38,7 +38,7 @@ var SourceMapProcessor = CachingWriter.extend({
 });
 
 var SourceMapInliner = SourceMapProcessor.extend({
-	processCode: function(srcCode, srcDir, destPath) {
+	processCode: function(srcCode, srcDir, destPath, relativePath) {
 		var smap = convert.fromMapFileSource(srcCode, srcDir);
 		if (smap !== null && typeof smap['sourcemap'] !== 'undefined') {
 			if (typeof smap.getProperty('sourcesContent') === 'undefined' && typeof smap.getProperty('sources') !== 'undefined') {
@@ -59,7 +59,7 @@ var SourceMapInliner = SourceMapProcessor.extend({
 });
 
 var SourceMapExtractor = SourceMapProcessor.extend({
-	processCode: function(srcCode, srcDir, destPath) {
+	processCode: function(srcCode, srcDir, destPath, relativePath) {
 		var smap = convert.fromComment(srcCode, srcDir);
 		if (smap !== null) {
 			var comment = '//# sourceMappingURL=' + relativePath + '.map';

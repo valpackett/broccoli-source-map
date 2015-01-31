@@ -1,0 +1,1 @@
+{"version":3,"sources":["example-es6.js"],"names":[],"mappings":";;IAAM,KAAK,GACC,SADN,KAAK,GACI;AACb,MAAK,CAAC,cAAc,CAAC,CAAC;CACtB","file":"example-es5.js","sourcesContent":["class Hello {\n\tconstructor() {\n\t\talert(\"Hello world!\");\n\t}\n}\n\n"]}
