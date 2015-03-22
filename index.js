@@ -62,9 +62,9 @@ var SourceMapExtractor = SourceMapProcessor.extend({
 	processCode: function(srcCode, srcDir, destPath, relativePath) {
 		var smap = convert.fromComment(srcCode, srcDir);
 		if (smap !== null) {
-			var comment = '//# sourceMappingURL=' + relativePath + '.map';
+			var comment = '//# sourceMappingURL=' + path.basename(relativePath) + '.map';
 			if (destPath.slice(-4) === '.css') {
-				comment = '/*# sourceMappingURL=' + relativePath + '.map */';
+				comment = '/*# sourceMappingURL=' + path.basename(relativePath) + '.map */';
 			}
 			fs.writeFileSync(destPath, convert.removeComments(srcCode) + '\n' + comment);
 			fs.writeFileSync(destPath + '.map', smap.toJSON());
