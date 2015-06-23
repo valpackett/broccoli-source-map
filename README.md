@@ -1,4 +1,4 @@
-# broccoli-source-map [![npm version](https://img.shields.io/npm/v/broccoli-source-map.svg?style=flat)](https://www.npmjs.org/package/broccoli-source-map) [![npm downloads](https://img.shields.io/npm/dm/broccoli-source-map.svg?style=flat)](https://www.npmjs.org/package/broccoli-source-map) [![Dependency Status](https://img.shields.io/gemnasium/myfreeweb/broccoli-source-map.svg?style=flat)](https://gemnasium.com/myfreeweb/broccoli-source-map) [![WTFPL](https://img.shields.io/badge/license-WTFPL-brightgreen.svg?style=flat)](https://www.tldrlegal.com/l/wtfpl)
+# broccoli-source-map [![npm version](https://img.shields.io/npm/v/broccoli-source-map.svg?style=flat)](https://www.npmjs.org/package/broccoli-source-map) [![npm downloads](https://img.shields.io/npm/dm/broccoli-source-map.svg?style=flat)](https://www.npmjs.org/package/broccoli-source-map) [![Build Status](https://img.shields.io/travis/myfreeweb/broccoli-source-map.svg?style=flat)](https://travis-ci.org/myfreeweb/broccoli-source-map) [![Dependency Status](https://img.shields.io/gemnasium/myfreeweb/broccoli-source-map.svg?style=flat)](https://gemnasium.com/myfreeweb/broccoli-source-map) [![Unlicense](https://img.shields.io/badge/un-license-green.svg?style=flat)](http://unlicense.org)
 
 A [Broccoli] plugin for inlining or extracting [JavaScript source maps] using [convert-source-map].
 
@@ -35,9 +35,14 @@ This is very useful if you want to use [broccoli-browserify] because browserify 
 
 [exorcist]: https://github.com/thlorenz/exorcist
 
+## Contributing
+
+Please feel free to submit pull requests!
+Bugfixes and simple non-breaking improvements will be accepted without any questions :-)
+
+By participating in this project you agree to follow the [Contributor Code of Conduct](http://contributor-covenant.org/version/1/1/0/).
+
 ## License
 
-Copyright © 2014-2015 Greg V <greg@unrelenting.technology>
-This work is free. You can redistribute it and/or modify it under the
-terms of the Do What The Fuck You Want To Public License, Version 2,
-as published by Sam Hocevar. See the COPYING file for more details.
+This is free and unencumbered software released into the public domain.  
+For more information, please refer to the `UNLICENSE` file or [unlicense.org](http://unlicense.org).

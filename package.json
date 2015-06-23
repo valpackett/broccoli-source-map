@@ -1,7 +1,7 @@
 {
 	"name": "broccoli-source-map",
 	"description": "A Broccoli plugin for inlining or extracting sourcemaps",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"author": "Greg V <greg@unrelenting.technology>",
 	"engines": {
 		"node": "*"
@@ -15,21 +15,21 @@
 		"broccoli-caching-writer": "^0.5.2",
 		"mkdirp": "^0.5.0",
 		"walk-sync": "^0.1.2",
-		"convert-source-map": "^0.4.1"
+		"convert-source-map": "^1.1.1"
 	},
 	"devDependencies": {
-		"mocha": "^2.1.0",
-		"broccoli": "^0.13.0",
+		"mocha": "^2.2.5",
+		"broccoli": "^0.16.3",
 		"expect.js": "^0.3.1"
+	},
+	"scripts": {
+		"test": "mocha test/ --full-trace"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/myfreeweb/broccoli-source-map.git"
 	},
-	"license": [{
-		"type": "WTFPL",
-		"url": "https://github.com/myfreeweb/broccoli-source-map/blob/master/COPYING"
-	}],
+	"license": "Unlicense",
 	"bugs": {
 		"url": "https://github.com/myfreeweb/broccoli-source-map/issues"
 	}
