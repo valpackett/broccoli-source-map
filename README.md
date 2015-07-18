@@ -1,6 +1,6 @@
 # broccoli-source-map [![npm version](https://img.shields.io/npm/v/broccoli-source-map.svg?style=flat)](https://www.npmjs.org/package/broccoli-source-map) [![npm downloads](https://img.shields.io/npm/dm/broccoli-source-map.svg?style=flat)](https://www.npmjs.org/package/broccoli-source-map) [![Build Status](https://img.shields.io/travis/myfreeweb/broccoli-source-map.svg?style=flat)](https://travis-ci.org/myfreeweb/broccoli-source-map) [![Dependency Status](https://img.shields.io/gemnasium/myfreeweb/broccoli-source-map.svg?style=flat)](https://gemnasium.com/myfreeweb/broccoli-source-map) [![Unlicense](https://img.shields.io/badge/un-license-green.svg?style=flat)](http://unlicense.org)
 
-A [Broccoli] plugin for inlining or extracting [JavaScript source maps] using [convert-source-map].
+A [Broccoli] plugin for inlining or extracting [JavaScript and CSS source maps] using [convert-source-map].
 
 [Broccoli]: https://github.com/broccolijs/broccoli
 [JavaScript source maps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/

@@ -30,7 +30,7 @@ var SourceMapProcessor = CachingWriter.extend({
 					var srcPath = path.join(srcDir, relativePath);
 					var destPath = path.join(destDir, relativePath);
 					var srcCode = fs.readFileSync(srcPath, {encoding: 'utf-8'});
-					self.processCode(srcCode, srcDir, destPath, relativePath);
+					self.processCode(srcCode, path.dirname(srcPath), destPath, relativePath);
 				}
 			}));
 		});
