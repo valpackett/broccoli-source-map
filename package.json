@@ -18,12 +18,12 @@
 		"convert-source-map": "^1.1.1"
 	},
 	"devDependencies": {
-		"mocha": "^2.2.5",
 		"broccoli": "^0.16.3",
-		"expect.js": "^0.3.1"
+		"tap-spec": "^4.0.2",
+		"tape": "^4.0.1"
 	},
 	"scripts": {
-		"test": "mocha test/ --full-trace"
+		"test": "tape 'test/*.js' | tap-spec"
 	},
 	"repository": {
 		"type": "git",
