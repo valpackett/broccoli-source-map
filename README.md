@@ -15,15 +15,15 @@ $ npm install --save-dev broccoli-source-map
 ## Usage
 
 ```js
-var sourceMap = require('broccoli-source-map');
-var src = 'js_and_maps'; // probably something like: sweetjs('js', {sourceMap: true, readableNames: true});
-var inlined = sourceMap.inline(src);
-var extracted = sourceMap.extract(inlined);
+var sourceMap = require('broccoli-source-map')
+var src = 'js_and_maps' // probably something like: sweetjs('js', {sourceMap: true, readableNames: true});
+var inlined = new sourceMap.SourceMapInliner([src])
+var extracted = new sourceMap.SourceMapExtractor([inlined])
 ```
 
 ### inline
 
-`require('broccoli-source-map').inline` combines pairs of `.js` and `.js.map` (`.css` and `.css.map`) files into one `.js` (`.css`) file that contains the source map as a base64 URL comment.
+`require('broccoli-source-map').SourceMapInliner` combines pairs of `.js` and `.js.map` (`.css` and `.css.map`) files into one `.js` (`.css`) file that contains the source map as a base64 URL comment.
 If the map contains file references in the `sources` field, but not the `sourcesContent` field, it will also inline the files into that field to make the compiled file independent of the source file.
 This is very useful if you want to use [broccoli-browserify] because browserify reads inline source maps, but not external ones.
 
@@ -31,16 +31,15 @@ This is very useful if you want to use [broccoli-browserify] because browserify 
 
 ### extract
 
-`require('broccoli-source-map').extract` extracts source maps from base64 URL comments of `.js` (`.css`) files into separate `.js.map` (`.css.map`) files, just like [exorcist].
+`require('broccoli-source-map').SourceMapExtractor` extracts source maps from base64 URL comments of `.js` (`.css`) files into separate `.js.map` (`.css.map`) files, just like [exorcist].
 
 [exorcist]: https://github.com/thlorenz/exorcist
 
 ## Contributing
 
 Please feel free to submit pull requests!
-Bugfixes and simple non-breaking improvements will be accepted without any questions :-)
 
-By participating in this project you agree to follow the [Contributor Code of Conduct](http://contributor-covenant.org/version/1/2/0/).
+By participating in this project you agree to follow the [Contributor Code of Conduct](http://contributor-covenant.org/version/1/4/).
 
 ## License
 

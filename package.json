@@ -1,7 +1,7 @@
 {
 	"name": "broccoli-source-map",
 	"description": "A Broccoli plugin for inlining or extracting sourcemaps",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"author": "Greg V <greg@unrelenting.technology>",
 	"engines": {
 		"node": "*"
@@ -9,18 +9,20 @@
 	"main": "index",
 	"keywords": [
 		"broccoli-plugin",
+		"broccoli",
 		"sourcemap"
 	],
 	"dependencies": {
-		"broccoli-caching-writer": "^1.0.0",
+		"broccoli-caching-writer": "^2.2.1",
 		"mkdirp": "^0.5.0",
-		"walk-sync": "^0.1.2",
-		"convert-source-map": "^1.1.1"
+		"walk-sync": "^0.2.6",
+		"lodash": "^4.7.0",
+		"convert-source-map": "^1.2.0"
 	},
 	"devDependencies": {
 		"broccoli": "^0.16.3",
-		"tap-spec": "^4.0.2",
-		"tape": "^4.0.1"
+		"tap-spec": "^4.1.1",
+		"tape": "^4.5.1"
 	},
 	"scripts": {
 		"test": "tape 'test/*.js' | tap-spec"
